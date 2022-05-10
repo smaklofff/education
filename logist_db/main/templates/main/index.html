@@ -1,0 +1,30 @@
+{% extends 'main/base.html' %}
+
+{% block filters %}
+<!--    <form method="post">-->
+<!--        {% csrf_token %}-->
+<!--        {{ form.title }}<br>-->
+<!--        <input type="text" placeholder="Введите название набора" class="form-control"><br>-->
+<!--        <button type="submit" class="btn btn-success">Применить фильтры</button>-->
+
+<!--    </form>-->
+    <h3> {{ title }} </h3>
+{% endblock %}
+<!--SELECT `main_delivery`.`id`, `main_delivery`.`shop_id`, `main_delivery`.`lego_id`, `main_delivery`.`logistic_company`, `main_delivery`.`deadlines`, `main_delivery`.`regularity_id` FROM `main_delivery`-->
+
+{% block content %}
+    <h3>Результаты поиска по базе данных:</h3>
+    {% if data %}
+        <table>
+        {% for el in data %}
+            <tr>
+                <td>{{ el.logistic_company }}</td>
+                <td>{{ el.lego.title }}</td>
+                <td>{{ el.deadlines }}</td>
+            </tr>
+        {% endfor %}
+        </table>
+    {% else %}
+        <h2> Таких данных нет</h2>
+    {% endif %}
+{% endblock %}
