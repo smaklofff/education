@@ -18,7 +18,7 @@ def x2(k, x, m):
     return -k * x / m
 
 
-def main():
+def main(n, a, b, k, m):
     h = (b - a) / n
     t_, x_, x1_, x2_ = 0, -5, 0, 0
     list_t, list_x, list_x1, list_x2 = [], [], [], []
@@ -33,19 +33,17 @@ def main():
         list_x1.append(x1_)
         list_x2.append(x2_)
         print(t_, x_, x1_, x2_)
-    create_plot(list_t, list_x, list_x1, list_x2)
+    create_plot(list_x, list_x1, list_x2)
 
 
-def create_plot(list_t, list_x, list_x1, list_x2):
+def create_plot(list_x, list_x1, list_x2):
     data = pd.DataFrame({
-                         'x': list_x,
-                         'x1': list_x1,
-                         'x2': list_x2})
-    data.plot(kind='line')
+        'x1': list_x1,
+        'x': list_x,
+        'x2': list_x2})
+    data.plot(kind="line")
     plt.show()
 
 
 if __name__ == '__main__':
-    k, m = 12, 10
-    n, a, b = 300, -5, 5
-    main()
+    main(2000, -5, 5, 12, 10)

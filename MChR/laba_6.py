@@ -9,7 +9,7 @@ def f(x, y):
     return (3 * y - 7 * x) / (4 * y - 3 * x)
 
 
-def main():
+def main(a, b, n):
     h = (b - a) / n
     x = a
     y = 3
@@ -21,5 +21,6 @@ def main():
 
 
 if __name__ == '__main__':
-    a, b, n = 1, 2, 10
-    main()
+    main(1, 2, 10)
+
+
