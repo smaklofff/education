@@ -1,0 +1,67 @@
+{% extends 'main/base.html' %}
+{% block content %}
+    <div class="add_info">
+        <form action="{% url 'add' %}" method="post">
+            {% csrf_token %}
+            <h4>Новая запись в таблице Lego</h4>
+            <table class="add_table">
+                {{ form_lego.as_table }}
+            </table>
+            <button type="submit"> Создать запись </button>
+        </form>
+
+        <form action="{% url 'add' %}" method="post">
+            {% csrf_token %}
+            <h4>Новая запись в таблице City</h4>
+            <table class="add_table">
+                {{ form_city.as_table }}
+            </table>
+            <button type="submit"> Создать запись </button>
+        </form>
+
+        <form action="{% url 'add' %}" method="post">
+            {% csrf_token %}
+            <h4>Новая запись в таблице Regularity</h4>
+            <table class="add_table">
+                {{ form_regularity.as_table }}
+            </table>
+            <button type="submit"> Создать запись </button>
+        </form>
+
+        <form action="{% url 'add' %}" method="post">
+            {% csrf_token %}
+            <h4>Новая запись в таблице Shop</h4>
+            <table class="add_table">
+                {{ form_shop.as_table }}
+            </table>
+            <button type="submit"> Создать запись </button>
+        </form>
+
+        <form action="{% url 'add' %}" method="post">
+            {% csrf_token %}
+            <h4>Новая запись в таблице Delivery</h4>
+            <table class="add_table">
+                {{ form_delivery.as_table }}
+            </table>
+            <button type="submit"> Создать запись </button>
+        </form>
+
+        <form action="{% url 'add' %}" method="post">
+            {% csrf_token %}
+            <h4>Новая запись в таблице Option</h4>
+            <table class="add_table">
+                {{ form_option.as_table }}
+            </table>
+            <button type="submit"> Создать запись </button>
+        </form>
+
+        <form action="{% url 'add' %}" method="post">
+            {% csrf_token %}
+            <h4>Новая запись в таблице Transactions</h4>
+            <table class="add_table">
+                {{ form_transactions.as_table }}
+            </table>
+            <button type="submit"> Создать запись </button>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,131 @@
+.DB {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 14px;
+    border-radius: 10px;
+    border-spacing: 0;
+    text-align: center;
+}
+.DB th {
+    background: #888888;
+    color: white;
+    text-shadow: 0 1px 1px #2D2020;
+    padding: 10px 20px;
+}
+.DB th, td {
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    border-color: white;
+}
+.DB th:first-child, td:first-child {
+    text-align: left;
+}
+.DB th:first-child {
+    border-top-left-radius: 10px;
+}
+.DB th:last-child {
+    border-top-right-radius: 10px;
+    border-right: none;
+}
+.DB td {
+    padding: 10px 20px;
+    background: #dddddd;
+}
+
+.DB tr:last-child td:first-child {
+    border-radius: 0 0 0 10px;
+}
+.DB tr:last-child td:last-child {
+    border-radius: 0 0 10px 0;
+}
+.DB tr td:last-child {
+    border-right: none;
+}
+
+.form{
+    font-size: 14px;
+    border-radius: 10px;
+
+}
+
+.grey{
+    text-align: center;
+    background-color: #dddddd;
+    padding: 10px 20px;
+}
+.white{
+    text-align: center;
+    background-color: #f0f0f0;
+    padding: 10px 20px;
+}
+.head{
+    text-align: center;
+    background-color: #888888;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+.form th, td {
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    border-color: white;
+}
+
+.div_login {
+    background-color: #f0f0f0;
+    border-radius: 20px;
+    border-width: 0 1px 1px 0;
+    padding: 20px;
+    margin: auto;
+    max-width: 300px;
+}
+.table_login{
+    margin: auto;
+}
+
+.add_table {
+    background-color: #f0f0f0;
+    border-radius: 20px;
+    border-width: 0 1px 1px 0;
+}
+.add_table tr{
+    display: table-row;
+}
+
+.add_table th, td{
+    padding: 10px;
+    text-align: left;
+
+}
+.add_table th td{
+    width: 100%;
+}
+.add_info{
+    margin: auto;
+    display: table;
+}
+
+h4{
+    margin-top: 30px;
+}
+
+button {
+    margin-top: 10px;
+    display: inline-block;
+    color: black;
+    font-weight: 700;
+    text-decoration: none;
+    user-select: none;
+    padding: .5em 2em;
+    outline: none;
+    border: 2px solid;
+    border-radius: 1px;
+    transition: 0.2s;
+}
+button:hover {
+    background: rgba(255,255,255,.2);
+}
+button:active {
+    background: white;
+}
+/*.container{*/
+/*    border-width: 0 1px 1px 0;*/
+/*}*/

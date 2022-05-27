@@ -1,0 +1,18 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="div_login">
+        {{ title }}
+        <form action="{% url 'login' %}" method="post" class="table_login">
+            {% csrf_token %}
+            <table style="text-align: center">
+                {{ form.as_table }}
+            </table>
+            <button type="submit"> Войти </button>
+        </form>
+    </div>
+
+
+{% endblock %}

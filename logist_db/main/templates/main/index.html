@@ -1,26 +1,103 @@
 {% extends 'main/base.html' %}
 
 {% block filters %}
-<!--    <form method="post">-->
-<!--        {% csrf_token %}-->
-<!--        {{ form.title }}<br>-->
-<!--        <input type="text" placeholder="Введите название набора" class="form-control"><br>-->
-<!--        <button type="submit" class="btn btn-success">Применить фильтры</button>-->
-
-<!--    </form>-->
     <h3> {{ title }} </h3>
+    <div>
+        <form action="{% url 'home' %}" method="post" class="form">
+            {% csrf_token %}
+            <table class="form">
+                <tr>
+                    <th colspan="2" class="head"> Поиск </th>
+                    <th colspan="2" class="head"> Фильтры </th>
+                    <th colspan="2" class="head"> Дата </th>
+                </tr>
+                <tr>
+                    <th class="grey">
+                        {{ form.search_city.label }}
+                    </th>
+                    <th class="white">
+                        {{ form.search_city }}
+                    </th>
+                    <th class="grey">
+                        {{ form.filter_on_options.label }}
+                    </th>
+                    <th class="white">
+                        {{ form.filter_on_options }}
+                    </th>
+                    <th class="grey">
+                        {{ form.from_day.label }}
+                    </th>
+                    <th class="white">
+                        {{ form.from_day }}
+                    </th>
+                </tr>
+                <tr>
+                    <th class="grey">
+                        {{ form.search_title.label }}
+                    </th>
+                    <th class="white">
+                        {{ form.search_title }}
+                    </th>
+                    <th class="grey">
+                        {{ form.filter_on_regularity.label }}
+                    </th>
+                    <th class="white">
+                        {{ form.filter_on_regularity }}
+                    </th>
+                    <th class="grey">
+                        {{ form.to_day.label }}
+                    </th>
+                    <th class="white">
+                        {{ form.to_day }}
+                    </th>
+                </tr>
+                <tr>
+                    <th class="grey">
+                        {{ form.order_by_title.label }}
+                    </th>
+                    <th class="white">
+                        {{ form.order_by_title }}
+                    </th>
+                    <th class="grey">
+                        {{ form.order_by_city.label }}
+                    </th>
+                    <th class="white">
+                        {{ form.order_by_city }}
+                    </th>
+                    <th class="grey">
+                        {{ form.order_by_company.label }}
+                    </th>
+                    <th class="white">
+                        {{ form.order_by_company }}
+                    </th>
+                </tr>
+            </table>
+        <hr>
+        <button type="submit"> Применить </button>
+    </form>
+    </div>
 {% endblock %}
-<!--SELECT `main_delivery`.`id`, `main_delivery`.`shop_id`, `main_delivery`.`lego_id`, `main_delivery`.`logistic_company`, `main_delivery`.`deadlines`, `main_delivery`.`regularity_id` FROM `main_delivery`-->
 
 {% block content %}
     <h3>Результаты поиска по базе данных:</h3>
+
     {% if data %}
-        <table>
+        <table class="DB">
+            <tr>
+                <th> Номер транзакции </th>
+                <th> Назвиние </th>
+                <th> Город </th>
+                <th> Способ оплаты </th>
+                <th> Транспортная компания </th>
+                <th> Срок </th>
+                <th> Номер </th>
+                <th> Регулярность </th>
+            </tr>
         {% for el in data %}
             <tr>
-                <td>{{ el.logistic_company }}</td>
-                <td>{{ el.lego.title }}</td>
-                <td>{{ el.deadlines }}</td>
+                {% for i in el %}
+                   <td> {{ i }} </td>
+                {% endfor %}
             </tr>
         {% endfor %}
         </table>
@@ -28,3 +105,32 @@
         <h2> Таких данных нет</h2>
     {% endif %}
 {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

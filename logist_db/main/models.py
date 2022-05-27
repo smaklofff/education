@@ -18,14 +18,14 @@ class Lego(models.Model):
 
 
 class City(models.Model):
-    city = models.CharField('Город', max_length=50)
+    city = models.CharField('Город', max_length=50, unique=True)
 
     def __str__(self):
         return self.city
 
 
 class Regularity(models.Model):
-    regularity = models.CharField('Регулярность', max_length=50)
+    regularity = models.CharField('Регулярность', max_length=50, unique=True)
 
     def __str__(self):
         return self.regularity
@@ -52,7 +52,7 @@ class Delivery(models.Model):
 
 
 class Options(models.Model):
-    options = models.CharField('Вариант оплаты', max_length=50)
+    options = models.CharField('Вариант оплаты', max_length=50, unique=True)
 
     def __str__(self):
         return self.options
@@ -63,22 +63,9 @@ class Transactions(models.Model):
     number = models.ForeignKey(Delivery, on_delete=models.CASCADE)
 
 
+class Users(models.Model):
+    login = models.CharField('Логин', max_length=100, unique=True)
+    password = models.CharField('Логин', max_length=100)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    def __str__(self):
+        return self.login
