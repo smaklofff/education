@@ -1,0 +1,186 @@
+{% extends 'main/base.html' %}
+
+{% block filters %}
+    <h1 style="text-align: center"> {{ title }} </h1>
+    <hr>
+{% endblock %}
+
+{% block content %}
+    <form action="{% url 'delete' %}" method="post">
+        {% csrf_token %}
+        <h3> Таблица Лего </h3>
+        <table class="DB">
+            <tr>
+                <th> {{ 'Название' }} </th>
+{#                <th> {{ 'Серия' }} </th>#}
+{#                <th> {{ 'Год выпуска' }} </th>#}
+                <th> {{ 'Возрастная группа' }} </th>
+                <th> {{ 'Размер' }} </th>
+                <th> {{ 'Эксклюзив' }} </th>
+                <th> {{ 'Новинка'}} </th>
+                <th> {{ 'Количество деталей' }} </th>
+                <th> {{ 'Цена' }} </th>
+                <th> {{ 'Удалить' }} </th>
+            </tr>
+            {% for el in lego_data %}
+
+                <tr>
+                    <td> {{ el.title }} </td>
+{#                    <td> {{ el.series }} </td>#}
+{#                    <td> {{ el.year }} </td>#}
+                    <td> {{ el.age }} </td>
+                    <td> {{ el.size }} </td>
+                    <td> {{ el.exclusive }} </td>
+                    <td> {{ el.new }} </td>
+                    <td> {{ el.quantity }} </td>
+                    <td> {{ el.price }} </td>
+                    <td>
+                        <button type="submit" name="delete_lego" value="{{ el.pk }}" class="btn btn-secondary"> Удалить </button>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </form>
+
+    <hr>
+
+    <form action="{% url 'delete' %}" method="post">
+        {% csrf_token %}
+        <h3> Таблица Город </h3>
+        <table class="DB">
+            <tr>
+                <th> {{ 'Город' }} </th>
+                <th> {{ 'Удалить' }} </th>
+            </tr>
+            {% for el in city_data %}
+                <tr>
+                    <td> {{ el.city }} </td>
+                    <td>
+                        <button type="submit" name="delete_city" value="{{ el.pk }}" class="btn btn-secondary"> Удалить </button>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </form>
+
+    <hr>
+
+    <form action="{% url 'delete' %}" method="post">
+        {% csrf_token %}
+        <h3> Таблица Регулярность </h3>
+        <table class="DB">
+            <tr>
+                <th> {{ 'Регулярность' }} </th>
+                <th> {{ 'Удалить' }} </th>
+            </tr>
+            {% for el in regularity_data %}
+                <tr>
+                    <td> {{ el.regularity }} </td>
+                    <td>
+                        <button type="submit" name="delete_regularity" value="{{ el.pk }}" class="btn btn-secondary"> Удалить </button>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </form>
+
+    <hr>
+
+    <form action="{% url 'delete' %}" method="post">
+        {% csrf_token %}
+        <h3> Таблица Магазин </h3>
+        <table class="DB">
+            <tr>
+                <th> {{ 'Магазин' }} </th>
+                <th> {{ 'Адрес' }} </th>
+                <th> {{ 'Телефон' }} </th>
+                <th> {{ 'Удалить' }} </th>
+            </tr>
+            {% for el in shop_data %}
+                <tr>
+                    <td> {{ el.city }} </td>
+                    <td> {{ el.address }} </td>
+                    <td> {{ el.telephone }} </td>
+                    <td>
+                        <button type="submit" name="delete_shop" value="{{ el.pk }}" class="btn btn-secondary"> Удалить </button>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </form>
+
+    <hr>
+
+    <form action="{% url 'delete' %}" method="post">
+        {% csrf_token %}
+        <h3> Таблица Доставка </h3>
+        <table class="DB">
+            <tr>
+                <th> {{ 'id Магазин' }} </th>
+                <th> {{ 'id Лего' }} </th>
+                <th> {{ 'Транспортная компания' }} </th>
+                <th> {{ 'Сроки поставки' }} </th>
+                <th> {{ 'id регулярность' }} </th>
+                <th> {{ 'Удалить' }} </th>
+            </tr>
+            {% for el in delivery_data %}
+                <tr>
+                    <td> {{ el.shop }} </td>
+                    <td> {{ el.lego }} </td>
+                    <td> {{ el.logistic_company }} </td>
+                    <td> {{ el.deadlines }} </td>
+                    <td> {{ el.regularity }} </td>
+                    <td>
+                        <button type="submit" name="delete_delivery" value="{{ el.pk }}" class="btn btn-secondary"> Удалить </button>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </form>
+
+    <hr>
+
+    <form action="{% url 'delete' %}" method="post">
+        {% csrf_token %}
+        <h3> Таблица Вариант оплаты </h3>
+        <table class="DB">
+            <tr>
+                <th> {{ 'Вариант оплаты' }} </th>
+                <th> {{ 'Удалить' }} </th>
+            </tr>
+            {% for el in options_data %}
+                <tr>
+                    <td> {{ el.options }} </td>
+                    <td>
+                        <button type="submit" name="delete_options" value="{{ el.pk }}" class="btn btn-secondary"> Удалить </button>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </form>
+
+    <hr>
+
+    <form action="{% url 'delete' %}" method="post">
+        {% csrf_token %}
+        <h3> Таблица Транзакции </h3>
+        <table class="DB">
+            <tr>
+                <th> {{ 'id Оплаты' }} </th>
+                <th> {{ 'id Доставки' }} </th>
+                <th> {{ 'Удалить' }} </th>
+            </tr>
+            {% for el in transactions_data %}
+                <tr>
+                    <td> {{ el.option }} </td>
+                    <td> {{ el.number }} </td>
+                    <td>
+                        <button type="submit" name="delete_transactions" value="{{ el.pk }}"  class="btn btn-secondary"> Удалить </button>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </form>
+
+    <hr>
+{% endblock %}

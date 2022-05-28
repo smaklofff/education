@@ -126,6 +126,13 @@ button:hover {
 button:active {
     background: white;
 }
+
+.add_info a {
+    margin-right: 30px;
+    margin-bottom: 30px;
+    width: 300px;
+}
+
 /*.container{*/
 /*    border-width: 0 1px 1px 0;*/
 /*}*/

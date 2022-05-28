@@ -4,8 +4,6 @@ from django.db import models
 # Create your models here.
 class Lego(models.Model):
     title = models.CharField('Название', max_length=50)
-    series = models.CharField('Серия', max_length=50)
-    year = models.IntegerField('Год выпуска')
     age = models.IntegerField('Возрастная группа')
     size = models.CharField('Размер', max_length=50)
     exclusive = models.BooleanField('Эксклюзив')
